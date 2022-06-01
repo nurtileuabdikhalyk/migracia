@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{{ title }}{% endblock title %}</title>
+</head>
+{% block content %}
+<body>
+<p style="margin-left: 100px;"><span style="color:#B22222;"><strong>Қажетті вакансияны таңдап өтініш беру формасын толтырыңыз</strong></span>
+</p>
+
+<div style="margin-left: 75px;">
+    <div class="card card-body">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">№</th>
+                <th scope="col">Аймақ</th>
+                <th scope="col">Қызметі</th>
+                <th scope="col">Өтініш</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for v in vakancia %}
+            <tr>
+                <th scope="row">{{ v.id }}</th>
+                <td>{{ v.region }}</td>
+                <td>{{ v.qyzmet }}</td>
+                <td> <button class="btn btn-primary"><a href="{% url 'vakanciaotinish' %}">Өтініш беру</a> </button> </td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+<br>
+<br>
+</body>
+{% endblock content %}
+</html>

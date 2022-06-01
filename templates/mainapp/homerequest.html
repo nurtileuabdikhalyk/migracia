@@ -1,0 +1,144 @@
+{% extends 'base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{{ title }}{% endblock title %}</title>
+</head>
+{% block content %}
+<body>
+<div class="container">
+    <h2>Өтініштер</h2>
+    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo1">Бос жұмыс
+        орындарына өтініштер
+    </button>
+    <br>
+    <div id="demo1" class="collapse">
+        <div class="card card-body">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th scope="col">№</th>
+                    <th scope="col">Есімі</th>
+                    <th scope="col">Тегі</th>
+                    <th scope="col">Телефон номері</th>
+                    <th scope="col">Вакансия</th>
+                    <th scope="col">Почта</th>
+                    <th scope="col">Жіберілген күні</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for el in otinishvak %}
+                <tr>
+                    <th scope="row">{{ el.id }}</th>
+                    <td>{{ el.name }}</td>
+                    <td>{{ el.surname }}</td>
+                    <td>{{ el.nomer }}</td>
+                    <td>{{ el.vakancia }}</td>
+                    <td>{{ el.email }}</td>
+                    <td>{{ el.publish }}</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <br>
+    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo2">Әлеуметтік көмекке
+        өтініштер
+    </button>
+    <div id="demo2" class="collapse">
+        <div class="card card-body">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th scope="col">№</th>
+                    <th scope="col">Есімі</th>
+                    <th scope="col">Тегі</th>
+                    <th scope="col">Телефон номері</th>
+                    <th scope="col">Көмек түрі</th>
+                    <th scope="col">Почта</th>
+                    <th scope="col">Жіберілген күні</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for el in requests %}
+                <tr>
+                    <th scope="row">{{ el.id }}</th>
+                    <td>{{ el.name }}</td>
+                    <td>{{ el.surname }}</td>
+                    <td>{{ el.nomer }}</td>
+                    <td>{{ el.req }}</td>
+                    <td>{{ el.email }}</td>
+                    <td>{{ el.publish }}</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <br>
+    <br>
+    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo3">Сұрақтар
+    </button>
+    <div id="demo3" class="collapse">
+        <div class="card card-body">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th scope="col">Есімі</th>
+                    <th scope="col">Хабарлама</th>
+                    <th scope="col">Почта</th>
+                    <th scope="col">Жіберілген күні</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for el in questions %}
+                <tr>
+                    <td>{{ el.name }}</td>
+                    <td>{{ el.text }}</td>
+                    <td>{{ el.email }}</td>
+                    <td>{{ el.publish }}</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <br>
+    <br>
+    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo4">Пікірлер
+    </button>
+    <div id="demo4" class="collapse">
+        <div class="card card-body">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th scope="col">Есімі</th>
+                    <th scope="col">Тегі</th>
+                    <th scope="col">Хабарлама</th>
+                    <th scope="col">Почта</th>
+                    <th scope="col">Жіберілген күні</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for el in reviews %}
+                <tr>
+                    <td>{{ el.name }}</td>
+                    <td>{{ el.surname }}</td>
+                    <td>{{ el.text }}</td>
+                    <td>{{ el.email }}</td>
+                    <td>{{ el.publish }}</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <br>
+    <br>
+</div>
+</body>
+{% endblock content %}
+</html>

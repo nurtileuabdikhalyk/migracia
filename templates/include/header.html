@@ -1,0 +1,46 @@
+ {% load static %}
+  <header class="header-section">
+
+        <div class="menu-item">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-2">
+                        <div class="logo">
+                            <a href="{% url 'home' %}">
+                                <img src="{% static 'img/logo.jpeg' %}" alt="">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-10">
+                        <div class="nav-menu">
+                            <nav class="mainmenu">
+                                <ul>
+                                    {% with request.resolver_match.url_name as url_name %}
+                                    <li class="{% if url_name == 'home' %}active{% endif %}">
+                                        <a href="{% url 'home' %}">Басты бет</a>
+                                    </li>
+                                    <li class="{% if url_name == 'news' %}active{% endif %}">
+                                        <a href="{% url 'news' %}">Жаңалықтар</a>
+                                    </li>
+
+                                    <li class="{% if url_name == 'about' %}active{% endif %}">
+                                        <a href="{% url 'about' %}">Біз туралы</a>
+                                    </li>
+                                    <li><a href="{% url 'question' %}">Көмек</a>
+
+                                    </li>
+                                    <li class="{% if url_name == 'contact' %}active{% endif %}">
+                                        <a href="{% url 'contact' %}">Контактілер</a>
+                                    </li>
+                                    {% endwith %}
+                                </ul>
+                            </nav>
+<!--                            <div class="nav-right search-switch">-->
+<!--                                <i class="icon_search"></i>-->
+<!--                            </div>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>

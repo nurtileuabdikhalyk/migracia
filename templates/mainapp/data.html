@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{{ title }}{% endblock title %}</title>
+</head>
+{% block content %}
+<body>
+<div class="container">
+    <h2>Қажетті пунктті таңдап ақпарат алыңыз</h2>
+    {% for data in datas %}
+    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo{{ data.id }}">{{ data.title }}</button>
+    <div id="demo{{ data.id }}" class="collapse">
+        {% autoescape off %}
+        {{ data.description }}
+        {% endautoescape %}
+    </div>
+    <br>
+    <br>
+    {% endfor %}
+</div>
+</body>
+{% endblock content %}
+</html>

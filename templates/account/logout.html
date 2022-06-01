@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+
+{% block title %}Шығу{% endblock %}
+
+{% block content %}
+
+<div class="main-site-warp">
+
+
+    <div class="site-content-warp">
+        <div style="margin-left:50px;">
+        <h1>Шығу</h1>
+
+        <p>Шыныменде шығасызба?</p>
+
+        <form method="post" action="{% url 'account_logout' %}">
+            {% csrf_token %}
+            {% if redirect_field_value %}
+            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+            {% endif %}
+            <button type="submit">Шығу</button>
+        </form>
+            <br>
+            <br>
+            </div>
+
+    </div>
+</div>
+
+
+{% endblock %}

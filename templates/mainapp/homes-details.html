@@ -1,0 +1,120 @@
+{% extends 'base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+
+    <title>{% block title %}{{ home.title }}{% endblock title %}</title>
+
+
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Cabin:400,500,600,700&display=swap" rel="stylesheet">
+
+
+</head>
+
+{% block content %}
+<body>
+<!-- Page Preloder -->
+<div id="preloder">
+    <div class="loader"></div>
+</div>
+
+
+<!-- Breadcrumb Section Begin -->
+<div class="breadcrumb-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb-text">
+                    <h2>{{ home.title }}</h2>
+                    <div class="bt-option">
+                        <a href="{% url 'home' %}">Басты бет</a>
+                        <a href="{% url 'search_homes' %}">Тұрғын үй іздеу</a>
+                        <span>{{ home.title }}</span>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Breadcrumb Section End -->
+
+<!-- Room Details Section Begin -->
+<section class="room-details-section spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="room-details-item">
+                    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                        </ol>
+                        <div class="carousel-inner">
+                            {% for image in home.homeshots_set.all %}
+                            <div class="carousel-item {% if forloop.first %}active {% endif %} ">
+                                <img class="d-block w-100" src="{{ image.image.url }}" alt="First slide">
+                            </div>
+                            {% endfor %}
+
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button"
+                           data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button"
+                           data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+
+
+                    <div class="rd-text">
+                        <div class="rd-title">
+                            <h3>{{ home.title }}</h3>
+
+                            <hr>
+                            <br>
+                            <br>
+                            <h4>Адрес:</h4>
+                            <p class="f-para">
+                            {{ home.address }}
+                            </p>
+                            <h4>Бағасы:</h4>
+                            <p class="f-para">
+                            {{ home.price }} тг
+                            </p>
+                            <p class="f-para">
+                                {{ home.description }}
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+</section>
+<!-- Room Details Section End -->
+
+<!-- Search model Begin -->
+<div class="search-model">
+    <div class="h-100 d-flex align-items-center justify-content-center">
+        <div class="search-close-switch"><i class="icon_close"></i></div>
+        <form class="search-model-form">
+            <input type="text" id="search-input" placeholder="Search here.....">
+        </form>
+    </div>
+</div>
+<!-- Search model end -->
+
+
+</body>
+{% endblock content %}
+</html>

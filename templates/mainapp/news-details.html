@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+
+    <title>{% block title %}{{ title }}{% endblock title %}</title>
+
+
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Cabin:400,500,600,700&display=swap" rel="stylesheet">
+
+
+</head>
+
+{% block content %}
+<body>
+<!-- Page Preloder -->
+<div id="preloder">
+    <div class="loader"></div>
+</div>
+
+
+<!-- Breadcrumb Section Begin -->
+<div class="breadcrumb-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb-text">
+                    <h2>{{ news_obj.title }}</h2>
+                    <div class="bt-option">
+                        <a href="{% url 'home' %}">Басты бет</a>
+                        <a href="{% url 'news' %}">Жаңалықтар</a>
+                        <span>{{ new.title }}</span>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Breadcrumb Section End -->
+
+<!-- Room Details Section Begin -->
+<section class="room-details-section spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="room-details-item">
+                    {% if new.yout %}
+
+<iframe width="560" height="315" src="{{ new.yout }}" title="YouTube video player"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+
+                    {% else %}
+                   <img src="{{ new.image.url }}" alt="" style="width: 500px;">
+                    {% endif %}
+
+
+                    <div class="rd-text">
+                        <div class="rd-title">
+                            <h3>{{ new.title }}</h3>
+
+                            <hr>
+                            <br>
+                            <br>
+                            <p class="f-para">
+                                {{ new.description }}
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+</section>
+<!-- Room Details Section End -->
+
+<!-- Search model Begin -->
+<div class="search-model">
+    <div class="h-100 d-flex align-items-center justify-content-center">
+        <div class="search-close-switch"><i class="icon_close"></i></div>
+        <form class="search-model-form">
+            <input type="text" id="search-input" placeholder="Search here.....">
+        </form>
+    </div>
+</div>
+<!-- Search model end -->
+
+
+</body>
+{% endblock content %}
+</html>

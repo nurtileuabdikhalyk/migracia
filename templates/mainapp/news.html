@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+
+    <title>{% block title %}{{ title }}{% endblock title %}</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Cabin:400,500,600,700&display=swap" rel="stylesheet">
+
+
+</head>
+{% block content %}
+<body>
+
+
+<!-- Breadcrumb Section Begin -->
+<div class="breadcrumb-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb-text">
+                    <h2>Жаңалықтар</h2>
+                    <div class="bt-option">
+                        <a href="{% url 'home' %}">Басты бет</a>
+                        <span>Жаңалықтар</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Breadcrumb Section End -->
+
+<!-- Blog Section Begin -->
+<section class="blog-section blog-page spad">
+    <div class="container">
+        <div class="row">
+            {% for new in news %}
+            <div class="col-lg-4 col-md-6">
+                <div class="blog-item set-bg" data-setbg="{{ new.image.url }}">
+                    <div class="bi-text">
+                        <span class="b-tag">{{ new.category }}</span>
+                        <h4><a href="{% url 'detailnews' new.slug %}">{{ new.title }}</a></h4>
+                        <div class="b-time"><i class="icon_clock_alt"></i> {{ new.created_at }}</div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+<!-- Blog Section End -->
+
+
+<!-- Search model Begin -->
+<div class="search-model">
+    <div class="h-100 d-flex align-items-center justify-content-center">
+        <div class="search-close-switch"><i class="icon_close"></i></div>
+        <form class="search-model-form">
+            <input type="text" id="search-input" placeholder="Search here.....">
+        </form>
+    </div>
+</div>
+<!-- Search model end -->
+
+
+</body>
+{% endblock content %}
+</html>

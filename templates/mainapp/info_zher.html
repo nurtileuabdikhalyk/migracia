@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{{ title }}{% endblock title %}</title>
+</head>
+{% block content %}
+<body>
+<p style="margin-left: 100px;"><span style="color:#B22222;"><strong>"Жеке тұрғын үй құрылысына жер учаскесін (10 сотық жер) алуға кезекті қарау немесе кезекке тұру"&nbsp;туралы бейнероликті қараңыз</strong></span>
+</p>
+<p>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/GkfNi8KtXmE" title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen style="margin-left: 100px; "></iframe>
+    <br>
+    <br>
+    <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
+       aria-controls="collapseExample" style="margin-left: 100px; ">
+        Өңірлер туралы ақпарат
+    </a>
+    <a class="btn btn-primary"  style="margin-left: 100px; color:white; " href="https://idp.egov.kz/idp/sign-in">
+        Өтініш беру
+    </a>
+
+</p>
+
+<div class="collapse" id="collapseExample" style="margin-left: 100px;">
+    <div class="card card-body">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">№</th>
+                <th scope="col">Облыс</th>
+                <th scope="col">Аудан</th>
+                <th scope="col">Ауыл</th>
+                <th scope="col">Жер көлемі</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for el in jer %}
+            <tr>
+                <th scope="row">{{ el.id }}</th>
+                <td>{{ el.name }}</td>
+                <td>{{ el.rayon }}</td>
+                <td>{{ el.village }}</td>
+                <td>{{ el.description }}</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+{% endblock content %}
+</html>

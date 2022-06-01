@@ -1,0 +1,210 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="zxx">
+{% load static %}
+<head>
+
+    <title>{% block title %}{{ title }}{% endblock title %}</title>
+
+</head>
+{% block content %}
+<body>
+<!-- Page Preloder -->
+<div id="preloder">
+    <div class="loader"></div>
+</div>
+
+<!-- Offcanvas Menu Section Begin -->
+<div class="offcanvas-menu-overlay"></div>
+<div class="canvas-open">
+    <i class="icon_menu"></i>
+</div>
+
+
+<!-- Hero Section Begin -->
+<section class="hero-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="hero-text">
+                    <h1>Uly Kosh</h1>
+                    <p> Қызмет көрсету орталығы</p>
+                    <a href="{% url 'about' %}" class="primary-btn">Әрі қарай оқу</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="hero-slider owl-carousel">
+        <div class="hs-item set-bg" data-setbg="{% static 'img/hero/hero1.webp' %}"></div>
+        <div class="hs-item set-bg" data-setbg="{% static 'img/hero/hero2.webp' %}"></div>
+        <div class="hs-item set-bg" data-setbg="{% static 'img/hero/hero3.webp' %}"></div>
+    </div>
+</section>
+
+<section class="services-section spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-title">
+                    <span>Біздің</span>
+                    <h2>Сервистер</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-sm-6">
+                <div class="service-item">
+                    <!--                        <i class="flaticon-036-parking"></i>-->
+                    <img src="{% static 'icons/icon1.png' %}" alt="">
+                    <h4><a href="{% url 'azamattyq' %}">Азаматтық алу</a></h4>
+                    <p> Мемлекетпен оның қарамағындағы тұлғалардың арасындағы өзара қарым-қатынас ретінде көрінеді:
+                        мемлекет адамның құқығына және бостандығына кепілдеме береді, оларды шет елдерде қорғайды. </p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6">
+                <div class="service-item">
+                    <img src="{% static 'icons/icon2.png' %}" alt="">
+                    <h4><a href="{% url 'info_zher' %}">Жер учаскесі</a></h4>
+                    <p>Жеке немесе заңды тұлғаның мемлекеттік меншіктегі жер учаскесін ақылы және ақысыз негізде
+                        мерзімсіз (тұрақты) немесе белгілі мерзім шегінде (уақытша) иелену және пайдалану құқығы</p>
+                </div>
+
+            </div>
+            <div class="col-lg-4 col-sm-6">
+                <div class="service-item">
+                    <img src="{% static 'icons/icon3.png' %}" alt="">
+                    <h4><a href="{% url 'vakancia' %}"> Бос жұмыс орындар</a></h4>
+                    <p>Жұмысқа орналастыру мүмкіндіктер және қызметшілер құрамын іріктеуді қамтамасыз етуге арналған
+                        бірыңғай сандық алаңы. </p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6">
+                <div class="service-item">
+                    <img src="{% static 'icons/icon4.png' %}" alt="">
+                    <h4><a href="{% url 'search_homes' %}">Тұрғын үй іздеу</a></h4>
+                    <p>Адамның (отбасының, бірнеше отбасының) және кейбір жануарлардың тіршілік ету ортасына бейімделген
+                        табиғи баспана.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6">
+                <div class="service-item">
+                    <img src="{% static 'icons/icon5.png' %}" alt="">
+                    <h4><a href="{% url 'info_help' %}">Әлеуметтік көмек</a> </h4>
+                    <p>Табысы аз азаматтарға ақшалай, материалдық жағынан немесе жұмыспен қамту бойынша көмек
+                        көрсету </p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6">
+                <div class="service-item">
+                    <img src="{% static 'icons/icon6.png' %}" alt="">
+                    <h4><a href="{% url 'data' %}">Сұрақтарға жауап</a> </h4>
+                    <p>Өңірлер туралы, ондағы жеңілдіктер, сұрақ қалдыру</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6">
+                <div class="service-item">
+                    <img src="{% static 'icons/icon7.png' %}" alt="">
+                    <h4><a href="{% url 'free_lands' %}">Шаруалышыққа жер алу</a> </h4>
+                    <p>Адамның (отбасының, бірнеше отбасының) және кейбір жануарлардың тіршілік ету ортасына бейімделген
+                        табиғи баспана.</p>
+                </div>
+            </div>
+            {% if user.is_authenticated %}
+            <div class="col-lg-4 col-sm-6">
+                <div class="service-item">
+                    <img src="{% static 'icons/icon11.png' %}" alt="">
+                    <h4><a href="{% url 'homerequest' %}">Өтініштер</a></h4>
+                    <p>Жүйеге келген өтініштер</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6">
+                <div class="service-item">
+                    <img src="{% static 'icons/icon10.png' %}" alt="">
+                    <h4><a href="{% url 'account_logout' %}">Шығу</a></h4>
+                    <p>Жүйеден шығу</p>
+                </div>
+            </div>
+            {% else %}
+            <div class="col-lg-4 col-sm-6">
+                <div class="service-item">
+                    <img src="{% static 'icons/icon8.png' %}" alt="">
+                    <h4><a href="{% url 'account_login' %}">Кіру</a></h4>
+                    <p>Бұрын соңды жүйеге тіркелген болсаңыз</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6">
+                <div class="service-item">
+                    <img src="{% static 'icons/icon9.png' %}" alt=""> <!--        flaticon icons-->
+                    <h4><a href="{% url 'account_signup' %}">Тіркелу</a></h4>
+                    <p>Бұрын соңды жүйеге тіркелмеген болсаңыз</p>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</section>
+<!-- Services Section End -->
+
+
+<!-- Testimonial Section Begin -->
+<section class="testimonial-section spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-title">
+                    <span>Пікірлер</span>
+                    <h2>Клиенттердің біз туралы ойлары</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2">
+                <div class="testimonial-slider owl-carousel">
+                    {% for review in reviews %}
+                    <div class="ts-item">
+                        <p>{{ review.text }}</p>
+                        <div class="ti-author">
+                            <div class="rating">
+                                <i class="icon_star"></i>
+                                <i class="icon_star"></i>
+                                <i class="icon_star"></i>
+                                <i class="icon_star"></i>
+                                <i class="icon_star-half_alt"></i>
+                            </div>
+                            <h5> - {{ review.name }} {{ review.surname }}</h5>
+                        </div>
+                        {% if review.image %}
+                        <img src="{{ review.image.url }}" alt="Image" class="img-fluid" width="50px" height="50px">
+                        {% else %}
+
+                        <img src="{% static 'img/nophoto.png' %}" alt="Image" class="img-fluid" width="50px"
+                             height="50px">
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Testimonial Section End -->
+
+
+<!-- Search model Begin -->
+<div class="search-model">
+    <div class="h-100 d-flex align-items-center justify-content-center">
+        <div class="search-close-switch"><i class="icon_close"></i></div>
+        <form class="search-model-form">
+            <input type="text" id="search-input" placeholder="Search here.....">
+        </form>
+    </div>
+</div>
+<!-- Search model end -->
+
+<!-- Js Plugins -->
+
+</body>
+{% endblock content %}
+</html>
